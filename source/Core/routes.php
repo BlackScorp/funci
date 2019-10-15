@@ -1,13 +1,8 @@
 <?php
-use function \BlackScorp\Funci\Core\{router,event,render,query};
+use function \BlackScorp\Funci\Core\{router,event};
 
 
-router('/',function(){
-    $data = [];
 
-            
-    return render('index',$data);
-});
 
 router('/assets/(.*)', function ($path) {
   
