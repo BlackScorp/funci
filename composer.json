@@ -1,0 +1,17 @@
+{
+    "name": "blackscorp/funci",
+    "description": "Funci is a functional based, beginner friendly micro framework written in PHP",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "BlackScorp\\Funci\\": "source/"
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "swiftmailer/swiftmailer": "~6",
+        "twbs/bootstrap":"~4",
+        "fortawesome/font-awesome":"~5",
+        "components/jquery":"~3"
+    }
+}
