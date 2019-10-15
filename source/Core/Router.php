@@ -1,8 +1,5 @@
 <?php
 declare(strict_types=1);
-namespace BlackScorp\Funci\Core;
-class Router{static function load(){}}; //this line is required for autoloading!!
-
 
 function router($path, $action = null, $methods = 'POST|GET') {
     static $routes = [];

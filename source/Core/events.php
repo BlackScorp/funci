@@ -1,5 +1,5 @@
 <?php
-use function BlackScorp\Funci\Core\{event,info,error};
+
 define('EVENT_403','http.403');
 define('EVENT_404','http.404');
 define('EVENT_500','http.500');

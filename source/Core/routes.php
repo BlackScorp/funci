@@ -1,5 +1,5 @@
 <?php
-use function \BlackScorp\Funci\Core\{router,event};
+
 
 
 

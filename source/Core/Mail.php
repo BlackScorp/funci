@@ -1,7 +1,5 @@
 <?php
 declare(strict_types=1);
-namespace BlackScorp\Funci\Core;
-class Mail{static function load(){}}; //this line is required for autoloading!!
 
 function sendMail(array $to, string $subject, string $body, array $files = null) {
     static $mailer = null;

@@ -1,8 +1,5 @@
 <?php
 declare(strict_types=1);
-namespace BlackScorp\Funci\Core;
-class DataBase{static function load(){}}; //this line is required for autoloading!!
-
 
 /**
  * @return mysqli | null

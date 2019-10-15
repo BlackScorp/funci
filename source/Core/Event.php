@@ -1,8 +1,5 @@
 <?php
 declare(strict_types=1);
-namespace BlackScorp\Funci\Core;
-class Event{static function load(){}} //this line is required for autoloading!!
-
 
 /**
  * @param string $name

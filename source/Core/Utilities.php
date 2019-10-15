@@ -1,7 +1,5 @@
 <?php
 declare(strict_types=1);
-namespace BlackScorp\Funci\Core;
-class Utitilities{static function load(){}}; //this line is required for autoloading!!
 
 function server($variableName) {
     return isset($_SERVER[$variableName]) ? $_SERVER[$variableName] : null;

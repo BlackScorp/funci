@@ -1,8 +1,5 @@
 <?php
 declare(strict_types=1);
-namespace BlackScorp\Funci\Core;
-class Logger{static function load(){}}; //this line is required for autoloading!!
-
 
 define('LOG_LEVEL_EMERGENCY', 'emergency');
 define('LOG_LEVEL_ALERT', 'alert');

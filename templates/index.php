@@ -1,5 +1,4 @@
-<?php use function BlackScorp\Funci\Core\{layout,section};
-layout('layouts/default');?>
+<?php layout('layouts/default');?>
 
 <?php section('title');?>
 Willkommen bei Funci

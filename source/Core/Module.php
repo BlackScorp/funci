@@ -12,16 +12,13 @@ set_error_handler(function () {
 }, E_WARNING & E_NOTICE);
 
 
-Event::load();
-Logger::load();
-Router::load();
-Template::load();
-DataBase::load();
-Mail::load();
-Utitilities::load();
 
-
-
+require_once __DIR__.'/DataBase.php';
+require_once __DIR__.'/Event.php';
+require_once __DIR__.'/Logger.php';
+require_once __DIR__.'/Router.php';
+require_once __DIR__.'/Template.php';
+require_once __DIR__.'/Utilities.php';
 require_once __DIR__.'/events.php';
 require_once __DIR__.'/routes.php';
 
