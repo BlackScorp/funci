@@ -3,6 +3,10 @@ declare(strict_types=1);
 
 function router($path, $action = null, $methods = 'POST|GET') {
     static $routes = [];
+    
+    if(strpos($path, '..') !== false){
+        return;
+    }
     if ($action) {
         return $routes['(' . $methods . ')_' . $path] = $action;
     }

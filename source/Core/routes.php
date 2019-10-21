@@ -17,7 +17,7 @@ router('/assets/(.*)', function ($path) {
     $filePath = null;
     foreach($assetsPaths as $assetsPath){
         $filePath = realpath($assetsPath);
-            var_dump($assetsPath);
+  
         if($filePath) break;
     }
 
