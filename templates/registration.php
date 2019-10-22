@@ -13,7 +13,7 @@ Registrierung
             <?php if (count($errors) > 0): ?>
                 <div class="alert alert-danger" role="alert">
                     <?php foreach ($errors as $message): ?>
-                        <?= $message ?>
+                    <p class="mb-0"><?= $message ?></p>
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
@@ -44,7 +44,7 @@ Registrierung
             </div>
             <div class="form-group">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="terms" id="terms">
+                    <input class="form-check-input" type="checkbox" name="terms" id="terms"<?= $terms?' checked="checked"':'' ?>>
                     <label class="form-check-label" for="terms">Akzeptiere die <a href="terms" target="_blank">Regeln</a></label>
                 </div>
             </div>

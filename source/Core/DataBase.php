@@ -9,7 +9,6 @@ function getDb() {
      * @var mysqli|null
      */
     static $mysqli = null;
-
     if ($mysqli instanceof mysqli) {
         return $mysqli;
     }
@@ -18,7 +17,6 @@ function getDb() {
         trigger_error($message,E_USER_ERROR);
     }
     list($host, $user, $password, $database, $port, $charset) = array_values(DATABASE_CONNECTION);
-
     $mysqli = mysqli_init();
     /**
      * we need to add @ for mysqli_real_connect because of MAMMP PRO 3.3.0 it shows a warning
@@ -54,7 +52,7 @@ function getDBError(mysqli $db = null) {
  * @param int $resultMode
  * @return bool|mysqli_result
  */
-function query($sql, mysqli $db = null, $resultMode = MYSQLI_STORE_RESULT) {
+function query(string $sql, mysqli $db = null, $resultMode = MYSQLI_STORE_RESULT) {
     if (is_null($db)) {
         $db = getDb();
     }
@@ -67,7 +65,7 @@ function query($sql, mysqli $db = null, $resultMode = MYSQLI_STORE_RESULT) {
  * @param mysqli|null $db
  * @return string
  */
-function escapeString($text, mysqli $db = null) {
+function escapeString(string $text, mysqli $db = null) {
     if (is_null($db)) {
         $db = getDb();
     }

@@ -12,7 +12,6 @@ set_error_handler(function () {
 }, E_WARNING & E_NOTICE);
 
 
-
 require_once __DIR__.'/DataBase.php';
 require_once __DIR__.'/Event.php';
 require_once __DIR__.'/Logger.php';

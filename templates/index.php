@@ -6,7 +6,8 @@ Willkommen bei Funci
 
 <?php section('content');?>
 <div class="container">
-    Willkommen bei Funci
+    <?php include __DIR__.'/partials/accountCreateFlashMessage.php'; ?>
+    Willkommen bei Funci    
 </div>
 <?php section('content');?>
 
