@@ -22,25 +22,25 @@ Registrierung
                 <label for="username">Benutzername</label>
                 <input class="form-control" id="username" type="text" name="username"
                        placeholder="Benutzername"
-                       value="<?= $username ?>">
+                       value="<?= escape($username) ?>">
             </div>
             <div class="form-group">
                 <label for="password">Passwort</label>
                 <input class="form-control" id="password" type="password" name="password"
                        placeholder="Passwort"
-                       value="<?= $password ?>">
+                       value="<?= escape($password) ?>">
             </div>
               <div class="form-group">
                 <label for="passwordRepeat">Password wiederholen</label>
                 <input class="form-control" id="passwordRepeat" type="password" name="passwordRepeat"
                        placeholder="Password wiederholen"
-                       value="<?= $passwordRepeat ?>">
+                       value="<?= escape($passwordRepeat) ?>">
             </div>
             <div class="form-group">
                 <label for="email">E-Mail</label>
                 <input class="form-control" id="email" type="email" name="email"
                        placeholder="E-Mail"
-                       value="<?= $email ?>">
+                       value="<?= escape($email) ?>">
             </div>
             <div class="form-group">
                 <div class="form-check">

@@ -2,25 +2,23 @@
 declare(strict_types=1);
 
 function isEmailUsed(string $email){
-    $sql ="SELECT 1 FROM users WHERE email = '".escapeString($email)."'";
+    $sql ="SELECT 1 FROM users WHERE email = '".escapeString($email)."' LIMIT 1";
     $result = query($sql);
   
     if(!$result){
         trigger_error(getDBError(),E_USER_ERROR);
-        return false;
     }
 
     return mysqli_num_rows($result) > 0;
 }
 
 function isUsernameUsed(string $username){
-    $sql ="SELECT 1 FROM users WHERE username = '".escapeString($username)."'";
+    $sql ="SELECT 1 FROM users WHERE username = '".escapeString($username)."' LIMIT 1";
     $result = query($sql);
     if(!$result){
         trigger_error(getDBError(),E_USER_ERROR);
-        return false;
     }
- return mysqli_num_rows($result) > 0;
+    return mysqli_num_rows($result) > 0;
 }
 
 function createAccount(string $username,string $password,string $email){
@@ -29,12 +27,16 @@ function createAccount(string $username,string $password,string $email){
             . "email='%s',"
             . "passwordHash='%s',"
             . "created=NOW(),"
-            . "updated=NOW()", escapeString($username), escapeString($email), hashPassword($password));
+            . "updated=NOW()", 
+            escapeString($username), 
+            escapeString($email), 
+            hashPassword($password)
+            );
     
     $result = query($sql);
     if(!$result){
        trigger_error(getDBError(),E_USER_ERROR);
-        return false;
+       return false;
     }
     return $result;
 }

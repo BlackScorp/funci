@@ -22,11 +22,12 @@ function accountCreateAction() {
     $emailIsUsed = isEmailUsed($email);
     $usernameIsUsed = isUsernameUsed($username);
 
-
     $errors = validateAccountCreation($username, $password, $passwordRepeat, $email, $terms,$usernameIsUsed, $emailIsUsed );
+ 
     if (count($errors) === 0) {
         $created = createAccount($username, $password, $email);
-        if ($created) {
+        $errors[]='Account konnte nicht erstellt werden';
+          if ($created) {
             event(EVENT_ACCOUNT_CREATED, [$username, $password, $email]);
             flashMessages('accountCreate', ['Registrierung erfolgreich']);
             redirect('/');

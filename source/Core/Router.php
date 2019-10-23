@@ -1,12 +1,16 @@
 <?php
 declare(strict_types=1);
 
-function router($path, $action = null, $methods = 'POST|GET') {
+function router($path = null, $action = null, $methods = 'POST|GET') {
     static $routes = [];
     
+    if(!$path){
+        return $routes;
+    }
     if(strpos($path, '..') !== false){
         return;
     }
+    
     if ($action) {
         return $routes['(' . $methods . ')_' . $path] = $action;
     }
