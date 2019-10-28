@@ -10,7 +10,9 @@ set_error_handler(function () {
 set_error_handler(function () {
     notice(func_get_arg(1),func_get_arg(4));
 }, E_WARNING & E_NOTICE);
-
+if(!deifined('LAYOUT')){
+    define('LAYOUT','default');
+}
 
 require_once __DIR__.'/DataBase.php';
 require_once __DIR__.'/Event.php';
