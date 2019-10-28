@@ -1,4 +1,4 @@
-<?php layout('layouts/default');?>
+<?php layout('layouts/'.LAYOUT);?>
 
 <?php section('title');?>
 Registrierung
@@ -7,9 +7,9 @@ Registrierung
 <?php section('content');?>
 <div class="container">
     <form method="POST" action="account/create" class="form-group">
-    <div class="panel panel-default">
-        <div class="panel-heading"><h2>Neuen Account anlegen</h2></div>
-        <div class="panel-body">
+    <div class="card">
+        <div class="card-header"><h2>Neuen Account anlegen</h2></div>
+        <div class="card-body">
             <?php if (count($errors) > 0): ?>
                 <div class="alert alert-danger" role="alert">
                     <?php foreach ($errors as $message): ?>
@@ -50,7 +50,7 @@ Registrierung
             </div>
 
         </div>
-        <div class="panel-footer">
+        <div class="card-footer">
             <button name="register" class="btn btn-outline-primary">Account anlegen</button>
         </div>
     </div>
@@ -59,4 +59,4 @@ Registrierung
 </div>
 <?php section('content');?>
 
-<?php layout('layouts/default');
+<?php layout('layouts/'.LAYOUT);
