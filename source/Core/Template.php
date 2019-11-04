@@ -114,6 +114,9 @@ function section($name) {
  *
  * @return string
  */
-function escape($value) {
+function escape($value = null) {
+    if(!$value){
+        return '';
+    }
     return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
