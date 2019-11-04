@@ -8,7 +8,7 @@ Willkommen bei Funci
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <?php include __DIR__ . '/partials/accountCreateFlashMessage.php'; ?>
+            <?php include __DIR__ . '/partials/accountFlashMessage.php'; ?>
             <div class="row">
                 <div class="col-4">
                     <?= $loginWidget ?>

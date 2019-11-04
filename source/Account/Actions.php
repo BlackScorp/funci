@@ -29,7 +29,7 @@ function accountCreateAction() {
         $errors[] = 'Account konnte nicht erstellt werden';
         if ($created) {
             event(EVENT_ACCOUNT_CREATED, [$username, $password, $email]);
-            flashMessages('accountCreate', ['Registrierung erfolgreich']);
+            flashMessages('account', ['Registrierung erfolgreich']);
             redirect('/');
         }
     }
@@ -46,20 +46,46 @@ function accountCreateAction() {
 }
 
 function loginAction() {
- 
+    if (isLoggedIn()) {
+        return '';
+    }
     $errors = [];
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password');
     $stayLoggedIn = filter_input(INPUT_POST, 'stayLoggedIn') === 'on';
-    
-    
+
+    if (isPost()) {
+        $passwordHash = findPasswordHashByUsername($username);
+        $passwordIsValid = verifyPassword($password, $passwordHash);
+        $errors = validateLogin($username, $password, $passwordHash, $passwordIsValid);
+        if (count($errors) === 0) {
+            $loggedIn = loginAccount($username);
+            $errors = ['Login fehlgeschlagen'];
+            if ($loggedIn) {
+                event(EVENT_ACCOUNT_LOGIN, [$username,$stayLoggedIn]);
+                flashMessages('account', ['Login erfolgreich']);
+                redirect('/');
+            }
+        }
+    }
+
     $data = [
         'errors' => $errors,
-        'username'=>$username,
-        'password'=>$password,
-        'stayLoggedIn'=>$stayLoggedIn
-        
+        'username' => $username,
+        'password' => $password,
+        'stayLoggedIn' => $stayLoggedIn
     ];
 
     return render('loginWidget', $data);
+}
+
+function logoutAction() {
+    if (!isLoggedIn()) {
+        return '';
+    }
+    $userId = session('userId');
+    session('userId', null);
+    event(EVENT_ACCOUNT_LOGOUT, [$userId]);
+    flashMessages('account', ['Erfolgreich abgemeldet']);
+    redirect('/');
 }

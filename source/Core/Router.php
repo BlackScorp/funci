@@ -32,7 +32,9 @@ function router($path = null, $action = null, $methods = 'POST|GET',bool $direct
         }
         array_shift($matches);
         array_shift($matches);
+        event(EVENT_BEFORE,$matches);
         $response = $action(...$matches);
+        event(EVENT_AFTER,$matches);
         return $response;
     }
     return event(EVENT_404, [$path, 'Route not found']);

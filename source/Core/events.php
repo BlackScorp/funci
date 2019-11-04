@@ -3,6 +3,8 @@
 define('EVENT_403','http.403');
 define('EVENT_404','http.404');
 define('EVENT_500','http.500');
+define('EVENT_BEFORE','event.middleware.before');
+define('EVENT_AFTER','event.middleware.after');
 /**
  * Setup basic events
  */

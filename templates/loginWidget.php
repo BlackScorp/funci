@@ -19,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label for="username">Password</label>
-                <input class="form-control" id="password" type="text" name="password"
+                <input class="form-control" id="password" type="password" name="password"
                        placeholder="Password"
                        value="<?= escape($password) ?>">
             </div>

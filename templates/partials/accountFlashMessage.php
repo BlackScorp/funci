@@ -1,5 +1,5 @@
 <?php
-$messages = flashMessages('accountCreate');
+$messages = flashMessages('account');
 if (count($messages) > 0): ?>
     <div class="alert alert-success" role="alert">
         <?php foreach ($messages as $message): ?>
