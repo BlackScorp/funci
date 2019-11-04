@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-function router($path = null, $action = null, $methods = 'POST|GET') {
+function router($path = null, $action = null, $methods = 'POST|GET',bool $directRequestDisabled = false) {
     static $routes = [];
     
     if(!$path){
@@ -12,10 +12,12 @@ function router($path = null, $action = null, $methods = 'POST|GET') {
     }
     
     if ($action) {
-        return $routes['(' . $methods . ')_' . $path] = $action;
+        return $routes['(' . $methods . ')_' . $path] = [$action,$directRequestDisabled];
     }
-    $path = server('REQUEST_METHOD').'_'.$path;
-    foreach ($routes as $route => $action) {
+    $originalPath = $path;
+    $path = server('REQUEST_METHOD').'_'.$originalPath;
+    foreach ($routes as $route => $data) {
+        list($action,$currentDirectRequestIsDisabled) = $data;
         $regEx = "~^$route/?$~i";
        
         $matches = [];
@@ -24,6 +26,9 @@ function router($path = null, $action = null, $methods = 'POST|GET') {
         }
         if (!is_callable($action)) {
             return event(EVENT_404, [$path, 'Route not found']);
+        }
+        if($currentDirectRequestIsDisabled && server('REQUEST_URI') && server('REQUEST_URI') === $originalPath){
+             return event(EVENT_404, [$path, 'Route not found']);
         }
         array_shift($matches);
         array_shift($matches);

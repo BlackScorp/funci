@@ -46,10 +46,13 @@ function accountCreateAction() {
 }
 
 function loginAction() {
+ 
     $errors = [];
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password');
     $stayLoggedIn = filter_input(INPUT_POST, 'stayLoggedIn') === 'on';
+    
+    
     $data = [
         'errors' => $errors,
         'username'=>$username,
