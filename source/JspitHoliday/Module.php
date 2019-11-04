@@ -7,9 +7,7 @@ class Module{static function load(){}}; //this line is required for autoloading!
 require_once __DIR__.'/source/class/JspitHoliday.php';
 
 
-$date = new \DateTime('2019-10-31');
-
-//$date = new \DateTime();
+$date = new \DateTime();
 $layout = 'default';
 
 $holidayClass = new \JspitHoliday("DE");
