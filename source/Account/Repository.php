@@ -55,6 +55,11 @@ function findPasswordHashByUsername(string $username): string {
     return mysqli_fetch_row($result)[0];
 }
 
+
+
+
+
+
 function findUserIdByUsername(string $username): int {
     static $userIdsForUsername = [];
 

@@ -53,8 +53,9 @@ function loginAction() {
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password');
     $stayLoggedIn = filter_input(INPUT_POST, 'stayLoggedIn') === 'on';
+    $loginButtonIsPressed = isset($_POST['login']);
 
-    if (isPost()) {
+    if (isPost() && $loginButtonIsPressed) {
         $passwordHash = findPasswordHashByUsername($username);
         $passwordIsValid = verifyPassword($password, $passwordHash);
         $errors = validateLogin($username, $password, $passwordHash, $passwordIsValid);
@@ -62,7 +63,7 @@ function loginAction() {
             $loggedIn = loginAccount($username);
             $errors = ['Login fehlgeschlagen'];
             if ($loggedIn) {
-                event(EVENT_ACCOUNT_LOGIN, [$username,$stayLoggedIn]);
+                event(EVENT_ACCOUNT_LOGIN, [$username, $stayLoggedIn]);
                 flashMessages('account', ['Login erfolgreich']);
                 redirect('/');
             }
