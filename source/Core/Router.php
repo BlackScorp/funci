@@ -14,7 +14,7 @@ function router($path = null, $action = null, $methods = 'POST|GET',bool $direct
     if ($action) {
         return $routes['(' . $methods . ')_' . $path] = [$action,$directRequestDisabled];
     }
-    $originalPath = $path;
+    $originalPath = str_replace('?'.server('QUERY_STRING'), '', $path);
     $path = server('REQUEST_METHOD').'_'.$originalPath;
     foreach ($routes as $route => $data) {
         list($action,$currentDirectRequestIsDisabled) = $data;
