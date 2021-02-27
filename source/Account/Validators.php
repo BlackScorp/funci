@@ -5,7 +5,7 @@ declare(strict_types=1);
 function validateAccountCreation(string $username, string $password, string $passwordRepeat, string $email, bool $terms, bool $usernameIsUsed, bool $emailIsUsed) {
     $errors = [];
     if (!trim($username)) {
-        $errors[] = 'Bitte benutzername angeben';
+        $errors[] = 'Bitte Benutzername angeben';
     }
     if (!trim($password)) {
         $errors[] = 'Password darf nicht leer sein';
@@ -29,7 +29,7 @@ function validateAccountCreation(string $username, string $password, string $pas
         $errors[] = 'Benutzername ist vergeben';
     }
     if (!$terms) {
-        $errors[] = 'Akptetiere die Regeln';
+        $errors[] = 'Akzeptiere die Regeln';
     }
     return $errors;
 }
@@ -37,13 +37,13 @@ function validateAccountCreation(string $username, string $password, string $pas
 function validateLogin(string $username, string $password, string $passwordHash, bool $passwordIsValid) {
     $errors = [];
     if (!trim($username)) {
-        $errors[] = 'Bitte benutzername angeben';
+        $errors[] = 'Bitte Benutzername angeben';
     }
     if (!trim($password)) {
         $errors[] = 'Password darf nicht leer sein';
     }
     if(!trim($passwordHash)){
-        $errors[]='Benutzer exestiert nicht';
+        $errors[] = 'Benutzer existiert nicht';
     }
     if(!$passwordIsValid){
         $errors[]='Password ist ungültig';
