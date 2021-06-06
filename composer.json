@@ -12,6 +12,7 @@
         "swiftmailer/swiftmailer": "~6",
         "twbs/bootstrap":"~4",
         "fortawesome/font-awesome":"~5",
-        "components/jquery":"~3"
+        "components/jquery":"~3",
+      "ext-openssl": "*"
     }
 }

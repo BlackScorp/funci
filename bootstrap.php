@@ -6,6 +6,8 @@ declare(strict_types=1);
 
 define('ROOT_DIR', realpath(__DIR__));
 
+define('STORAGE_DIR',realpath(__DIR__).'/storage');
+
 /**
  * Load vendor
  */
