@@ -14,4 +14,4 @@ define('OPENSSL_CONFIG',[
         'default_md' => 'sha256',
 ]);
 //var_dump(openssl_get_cipher_methods());
-define('OPENSS_CIPHER','aes256');
+define('OPENSSL_CIPHER','aes256');

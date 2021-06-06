@@ -30,7 +30,7 @@ function sendSealedMessageTo(array $recipients,$subject,$message):bool{
         $publicKeys[]=openssl_get_publickey($publicKeyString);
     }
     $iv = openssl_random_pseudo_bytes(32);
-    openssl_seal($message,$sealedMessage,$encryptedKeys,$publicKeys,OPENSS_CIPHER,$iv);
+    openssl_seal($message,$sealedMessage,$encryptedKeys,$publicKeys,OPENSSL_CIPHER,$iv);
 
     $messageFileName = convertSubjectToFileName($subject);
 
@@ -75,7 +75,7 @@ function getSealedMessageContent(string $username,string $password,string $subje
 
     $messageText ='';
 
-    if (openssl_open($sealedMessage, $messageText, ($messageKey), $privateKey,OPENSS_CIPHER,$iv ) ) {
+    if (openssl_open($sealedMessage, $messageText, ($messageKey), $privateKey,OPENSSL_CIPHER,$iv ) ) {
         return $messageText;
     }
     return 'Failed to read message';
