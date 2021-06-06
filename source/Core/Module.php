@@ -20,6 +20,7 @@ require_once __DIR__.'/Logger.php';
 require_once __DIR__.'/Router.php';
 require_once __DIR__.'/Template.php';
 require_once __DIR__.'/Utilities.php';
+require_once __DIR__.'/Mail.php';
 require_once __DIR__.'/events.php';
 require_once __DIR__.'/routes.php';
 
